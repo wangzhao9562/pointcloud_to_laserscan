@@ -1,0 +1,1 @@
+pointcloud_to_laserscan rototype cannot modify "time_increment" of Laserscan message, the default value 0.0 will cause the error when some mapping packages are used, such as cartogrpaher, this minor extension add the tiem_increment memeber into the main class to implement this.
