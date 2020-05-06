@@ -70,6 +70,8 @@ void PointCloudToLaserScanNodelet::onInit()
   private_nh_.param<double>("range_max", range_max_, std::numeric_limits<double>::max());
   private_nh_.param<double>("inf_epsilon", inf_epsilon_, 1.0);
 
+  private_nh_.param<double>("time_increment", time_increment_, 0.1);
+
   int concurrency_level;
   private_nh_.param<int>("concurrency_level", concurrency_level, 1);
   private_nh_.param<bool>("use_inf", use_inf_, true);
@@ -154,7 +156,8 @@ void PointCloudToLaserScanNodelet::cloudCb(const sensor_msgs::PointCloud2ConstPt
   output.angle_min = angle_min_;
   output.angle_max = angle_max_;
   output.angle_increment = angle_increment_;
-  output.time_increment = 0.0;
+  // output.time_increment = 0.0;
+  output.time_increment = time_increment_;
   output.scan_time = scan_time_;
   output.range_min = range_min_;
   output.range_max = range_max_;
